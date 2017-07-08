@@ -11,6 +11,7 @@ class AddForm extends Component {
                     yearValid: false,
                     formValid: false};
     }
+
     validateField(fieldName,value) {
       let fieldValidationErrors = this.state.formErrors;
       let yearValid = this.state.yearValid;

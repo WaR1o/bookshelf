@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import Book from './Book.js';
 
 class BooksList extends Component {
+  handleBookRemove(book) {
+    this.props.onBookRemove(book);
+  }
+
   render() {
     let rows = [];
+    let that = this;
     this.props.books.map((book) => {
-      rows.push(<Book name={book.name} author={book.author} year={book.year} url={book.url} />);
+      rows.push(<Book book={book} onBookDelete={that.handleBookRemove} />);
     });
 
     return (

@@ -12,10 +12,23 @@ export let BOOKS = [
 ];
 
 class App extends Component {
-  /*constructor(props) {
+  constructor(props) {
     super(props);
-    this.state = {data: []};
+    this.state = {booklist: BOOKS};
+  }
+  /*getInitialState() {
+    return {booklist: BOOKS};
   }*/
+
+  handleNewRowSubmit(newbook) {
+    this.setState({booklist: this.state.booklist.concat([newbook])});
+  }
+
+  handleBookRemove(index) {
+      let booklist = [...this.state.booklist];
+      booklist.splice(index, 1);
+      this.setState({booklist});
+  }
 
   render() {
     return (
@@ -24,8 +37,8 @@ class App extends Component {
           <img src="#" className="App-logo" alt="logo" />
           <h2>Книжная полка</h2>
         </div>
-		    <BooksList books={BOOKS} />
-        <AddForm />
+		    <BooksList books={this.state.booklist} onBookRemove={this.handleBookRemove.bind(this)}/>
+        <AddForm onRowSubmit={this.handleNewRowSubmit}/>
     </div>
     );
   }
