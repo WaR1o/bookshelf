@@ -5,16 +5,18 @@ class Book extends Component {
   constructor(props) {
     super(props);
     this.handleRemoveBook = this.handleRemoveBook.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleRemoveBook() {
-    //console.log(this.props);
     this.props.onBookDelete(this.props.book);
-    //return false;
+  }
+
+  handleEdit() {
+    this.props.onEditBook(this.props.book);
   }
 
   render () {
-    console.log("render");
     return (
       <tr>
         <td><img src={this.props.book.url} alt={this.props.book.name} />
@@ -31,7 +33,8 @@ class Book extends Component {
 
 Book.PropTypes = {
   book: PropTypes.object,
-  onBookDelete: PropTypes.func
+  onBookDelete: PropTypes.func,
+  onEditBook: PropTypes.func
 }
 
 export default Book;

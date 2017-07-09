@@ -24,6 +24,7 @@ class App extends Component {
   }*/
 
   handleNewRowSubmit(newbook) {
+    console.log(newbook);
     this.setState({booklist: this.state.booklist.concat([newbook])});
   }
 
@@ -33,6 +34,10 @@ class App extends Component {
       this.setState({booklist});
   }
 
+  handleBookEdit(book) {
+      return
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,7 +45,7 @@ class App extends Component {
           <img src="#" className="App-logo" alt="logo" />
           <h2>Книжная полка</h2>
         </div>
-		    <BooksList books={this.state.booklist} onBookRemove={this.handleBookRemove}/>
+		    <BooksList books={this.state.booklist} onBookRemove={this.handleBookRemove} onBookEdit={this.handleBookEdit}/>
         <AddForm onRowSubmit={this.handleNewRowSubmit}/>
     </div>
     );

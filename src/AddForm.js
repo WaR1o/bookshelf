@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddForm extends Component {
      constructor(props) {
        super(props);
        this.state = {name: "",
                     author: "",
-                    cover: "",
+                    url: "",
                     year: null,
-                    formErrors: {name: '', author: '', cover: '', year: ''},
+                    formErrors: {name: '', author: '', url: '', year: ''},
                     yearValid: false,
                     formValid: false};
     }
@@ -37,16 +38,16 @@ class AddForm extends Component {
       const name = e.target.name;
       const value = e.target.value;
       this.setState({[name]: value},
-                    () => { this.validateField(name, value) });
+                    () => { this.validateField(name, value)});
     }
 
-   /*   this.onChange = this.onChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
+      /*this.onChange = this.onChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);*/
+
      handleSubmit(e) {
        e.preventDefault();
        alert("Имя: " + this.state.name);
-     }*/
+     }
 
      render() {
        return (
@@ -68,11 +69,11 @@ class AddForm extends Component {
                       value={this.state.year || ""} onChange={this.handleUserInput} />
                    </div>
                    <div className="form-group">
-                     <label htmlFor="cover">Обложка книги</label>
-                     <input type="text" className="form-control"name="cover"
-                      value={this.state.cover || ""} onChange={this.handleUserInput}/>
+                     <label htmlFor="url">Обложка книги</label>
+                     <input type="text" className="form-control"name="url"
+                      value={this.state.url || ""} onChange={this.handleUserInput}/>
                    </div>
-               <button type="submit" className="btn btn-primary"
+               <button type="submit" className="btn btn-primary" onClick={this.props.onRowSubmit}
                disabled={!this.state.formValid}>Сохранить</button>
                <button type="reset" className="btn btn-primary">Отменить</button>
            </form>
@@ -80,4 +81,8 @@ class AddForm extends Component {
      }
    }
 
-   export default AddForm;
+AddForm.PropTypes = {
+  onRowSubmit: PropTypes.func
+}
+
+export default AddForm;
