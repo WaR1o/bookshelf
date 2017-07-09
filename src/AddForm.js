@@ -58,7 +58,7 @@ class AddForm extends Component {
      render() {
        return (
            <form className="addBook">
-               <h2>Добавьте книгу</h2>
+               <h3>Добавить книгу</h3>
                    <div className="form-group">
                      <label htmlFor="name">Название книги</label>
                      <input type="text" className="form-control" name="name"
@@ -75,14 +75,13 @@ class AddForm extends Component {
                       value={this.state.year || ""} onChange={this.handleUserInput} />
                    </div>
                    <div className="form-group">
-                     <label htmlFor="url">Обложка книги</label>
+                     <label htmlFor="url">Обложка</label>
                      <input type="text" className="form-control"name="url"
                       value={this.state.url || ""} onChange={this.handleUserInput}/>
                    </div>
-               <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}
+               <button type="submit" className="btn btn-primary" id="save" onClick={this.handleSubmit}
                disabled={!this.state.formValid}>Сохранить</button>
-               <button type="reset" className="btn btn-primary">Отменить</button>
-           </form>
+            </form>
        );
      }
    }

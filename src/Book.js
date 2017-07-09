@@ -19,13 +19,12 @@ class Book extends Component {
   render () {
     return (
       <tr>
-        <td><img src={this.props.book.url} alt={this.props.book.name} />
+        <td className="img"><img src={this.props.book.url} alt={this.props.book.name} />
         </td>
-        <td>{this.props.book.name}</td>
-        <td>{this.props.book.author}</td>
-        <td>{this.props.book.year}</td>
-        <td><input type="button" className="btn" value="Редактировать" /></td>
-        <td><input type="button" className="btn" value="Удалить" onClick={this.handleRemoveBook} /></td>
+        <td className="name">{this.props.book.name}</td>
+        <td className="author">{this.props.book.author}</td>
+        <td className="year">{this.props.book.year}</td>
+        <td className="del"><input type="button" className="btn" value="Удалить" onClick={this.handleRemoveBook} /></td>
       </tr>
       );
   }

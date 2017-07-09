@@ -1,24 +1,99 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  border: solid 0.5px;
+}
+
+.App-header {
+  background-color: Maroon;
+  max-width: 100%;
+  max-height: 100%;
+  margin:auto;
+  display:block;
+  height: 150px;
+  color: white;
+  border: solid 0.5px #000;
+}
+
+body {
+  background-color: Bisque;
+  margin: 0;
+  padding: 0;
+}
+
+
+img {
+  width: 150px;
+  height: 200px;
+}
+
+h2 {
+  font-size: 22px;
+  padding: 2em;
+  letter-spacing: 0.04em;
+  text-align: center;
+  border: solid 1px SandyBrown;
+}
+
+h3 {
+  font-size: 18px;
+  text-align: left;
+  margin-top: 1.5em;
+  border: none;
+}
+
+label {
+  display: block;
+  margin: 0;
+}
+
+/* TODO Add custom fonts. Change position of AddForm and its input fields
+Stylize buttons. */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  /*animation: App-logo-spin infinite 20s linear;*/
-  height: 80px;
+.addBook {
+  margin-left: 0.5%;
+  border: none;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.form-group {
+  text-align: left;
 }
 
-.App-intro {
-  font-size: large;
+.btn {
+  background-color: Ivory;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+td.img {
+  width: 15%;
+}
+
+td.name {
+  width: 45%;
+}
+
+.book-list {
+  margin-left: 0;
+  width: 100%;
+  border: none;
+}
+
+td.author {
+  width: 20%;
+}
+
+td.year {
+  width: 10%;
+}
+
+td.del {
+  width: 10%;
+}
+
+#save {
+  margin-top: 0.8em;
+  float:left;
 }
