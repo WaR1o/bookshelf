@@ -46,8 +46,6 @@ class AddForm extends Component {
                     () => { this.validateField(name, value)});
     }
 
-      /*this.onChange = this.onChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);*/
 
      handleSubmit(e) {
        e.preventDefault();
