@@ -11,6 +11,11 @@ class AddForm extends Component {
                     formErrors: {name: '', author: '', url: '', year: ''},
                     yearValid: false,
                     formValid: false};
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.validateField = this.validateField.bind(this);
+    this.validateForm = this.validateForm.bind(this);
+    this.handleUserInput = this.handleUserInput.bind(this);
     }
 
     validateField(fieldName,value) {
@@ -46,7 +51,8 @@ class AddForm extends Component {
 
      handleSubmit(e) {
        e.preventDefault();
-       alert("Имя: " + this.state.name);
+       console.log(this.state);
+       this.props.onRowSubmit(this.state);
      }
 
      render() {
@@ -73,7 +79,7 @@ class AddForm extends Component {
                      <input type="text" className="form-control"name="url"
                       value={this.state.url || ""} onChange={this.handleUserInput}/>
                    </div>
-               <button type="submit" className="btn btn-primary" onClick={this.props.onRowSubmit}
+               <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}
                disabled={!this.state.formValid}>Сохранить</button>
                <button type="reset" className="btn btn-primary">Отменить</button>
            </form>
