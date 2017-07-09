@@ -55,22 +55,22 @@ class AddForm extends Component {
                    <div className="form-group">
                      <label htmlFor="name">Название книги</label>
                      <input type="text" className="form-control" name="name"
-                      value={this.state.name} onChange={this.handleUserInput}/>
+                      value={this.state.name || ""}  onChange={this.handleUserInput}/>
                    </div>
                    <div className="form-group">
                      <label htmlFor="author">Автор</label>
                      <input type="text" className="form-control" name="author"
-                     value={this.state.author} onChange={this.handleUserInput}/>
+                     value={this.state.author || ""} onChange={this.handleUserInput}/>
                    </div>
                    <div className="form-group">
                      <label htmlFor="year">Год выпуска</label>
                      <input type="number" className="form-control"name="year"
-                      value={this.state.year} onChange={this.handleUserInput} />
+                      value={this.state.year || ""} onChange={this.handleUserInput} />
                    </div>
                    <div className="form-group">
                      <label htmlFor="cover">Обложка книги</label>
                      <input type="text" className="form-control"name="cover"
-                      value={this.state.cover} onChange={this.handleUserInput}/>
+                      value={this.state.cover || ""} onChange={this.handleUserInput}/>
                    </div>
                <button type="submit" className="btn btn-primary"
                disabled={!this.state.formValid}>Сохранить</button>

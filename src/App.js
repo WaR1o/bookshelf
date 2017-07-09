@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Book from './Book.js';
+//import Book from './Book.js';
 import AddForm from './AddForm.js';
 import BooksList from './BooksList.js'
+
 
 export let BOOKS = [
   {name: "Automate The Boring Stuff With Python", author: "Al Sweigart", year: "2016", url: "https://goo.gl/mZaqMp"},
@@ -15,6 +16,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {booklist: BOOKS};
+    this.handleBookRemove = this.handleBookRemove.bind(this);
+    this.handleNewRowSubmit = this.handleNewRowSubmit.bind(this);
   }
   /*getInitialState() {
     return {booklist: BOOKS};
@@ -25,7 +28,7 @@ class App extends Component {
   }
 
   handleBookRemove(index) {
-      let booklist = [...this.state.booklist];
+      let booklist = this.state.booklist;
       booklist.splice(index, 1);
       this.setState({booklist});
   }
@@ -37,7 +40,7 @@ class App extends Component {
           <img src="#" className="App-logo" alt="logo" />
           <h2>Книжная полка</h2>
         </div>
-		    <BooksList books={this.state.booklist} onBookRemove={this.handleBookRemove.bind(this)}/>
+		    <BooksList books={this.state.booklist} onBookRemove={this.handleBookRemove}/>
         <AddForm onRowSubmit={this.handleNewRowSubmit}/>
     </div>
     );
